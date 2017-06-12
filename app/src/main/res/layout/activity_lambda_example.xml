@@ -40,7 +40,6 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:context="pl.com.mmotak.validator.MainActivity"
             tools:showIn="@layout/activity_multi_rules_example">
 
             <android.support.design.widget.TextInputLayout
@@ -55,7 +54,6 @@
                     android:hint="@string/user_name" />
 
             </android.support.design.widget.TextInputLayout>
-
 
             <android.support.design.widget.TextInputLayout
                 app:hintAnimationEnabled="false"

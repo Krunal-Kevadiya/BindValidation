@@ -22,6 +22,7 @@ public class XmlExampleActivity extends BaseActivity<ActivityXmlExampleBinding, 
     @Override
     protected void setViewModel(ActivityXmlExampleBinding binding, XmlExampleViewModel viewModel) {
         binding.setViewModel(viewModel);
+        viewModel.setBinding(binding);
     }
 
     @Override

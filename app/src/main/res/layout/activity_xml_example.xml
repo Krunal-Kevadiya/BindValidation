@@ -30,193 +30,192 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <ScrollView
+        <LinearLayout
+            android:id="@+id/content_main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:showIn="@layout/activity_multi_rules_example">
 
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    app:validateDateMinListener='@{"onTextChange"}'
+                    app:validateMaxLength="@{10}"
+                    app:validateMaxLengthMessage="@{@string/custom_error_max_length}"
+                    app:validateMinLength="@{4}"
+                    app:validateMinLengthMessage="@{@string/custom_error_min_length}" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/validate_name"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:focusableInTouchMode="true"
-                android:orientation="vertical"
-                android:padding="8dp">
+                android:text="Validate name"
+                android:onClick="@{v -> viewModel.onNameViewClick(v)}"/>
 
-                <android.support.design.widget.TextInputLayout
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/username"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Name"
-                        app:validateDateMinListener='@{"onTextChange"}'
-                        app:validateMaxLength="@{10}"
-                        app:validateMaxLengthMessage="@{@string/custom_error_max_length}"
-                        app:validateMinLength="@{4}"
-                        app:validateMinLengthMessage="@{@string/custom_error_min_length}" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <Button
-                    android:id="@+id/validate_name"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Validate name"
-                    android:onClick="@{v -> viewModel.onNameViewClick(v)}"/>
+                    android:hint="Username"
+                    app:validateDateListener='@{"onTextChange"}'
+                    app:validateType='@{"username"}'
+                    app:validateTypeMessage="@{@string/custom_error_username}" />
 
-                <android.support.design.widget.TextInputLayout
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/username"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Username"
-                        app:validateDateListener='@{"onTextChange"}'
-                        app:validateType='@{"username"}'
-                        app:validateTypeMessage="@{@string/custom_error_username}" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Email"
-                        app:validateDateListener='@{"onTextChange"}'
-                        app:validateType='@{"email"}' />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <Button
-                    android:id="@+id/validate_multiple"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Multiple Validation"
-                    android:onClick="@{v -> viewModel.onMultipleViewClick(v)}" />
+                    android:hint="Email"
+                    app:validateDateListener='@{"onTextChange"}'
+                    app:validateType='@{"email"}' />
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+            </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="URL"
-                        app:validateDateListener='@{"onTextChange"}'
-                        app:validateType='@{"url"}' />
+            <Button
+                android:id="@+id/validate_multiple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Multiple Validation"
+                android:onClick="@{v -> viewModel.onMultipleViewClick(v)}" />
 
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="CPF"
-                        app:validateDateListener='@{"onTextChange"}'
-                        app:validateType='@{"cpf"}'
-                        app:validateTypeMessage="@{@string/custom_error_cpf}" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Credit Card"
-                        app:validateDateListener='@{"onTextChange"}'
-                        app:validateType='@{"creditCard"}' />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Year"
-                        android:inputType="number"
-                        android:maxLength="4"
-                        app:validateDate='@{"yyyy"}'
-                        app:validateDateListener='@{"onTextChange"}'
-                        app:validateDateMessage="@{@string/custom_error_date}" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Month"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        app:validateDate='@{"MM"}'
-                        app:validateDateListener='@{"onTextChange"}' />
-
-                </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Not Empty"
-                    android:inputType="number"
+                    android:hint="URL"
                     app:validateDateListener='@{"onTextChange"}'
-                    app:validateEmpty="@{true}" />
+                    app:validateType='@{"url"}' />
 
-                <android.support.design.widget.TextInputLayout
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/password"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Password"
-                        android:inputType="textPassword" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Confirm password"
-                        android:inputType="textPassword"
-                        app:validateDateListener='@{"onTextChange"}'
-                        app:validatePassword="@{password}"
-                        app:validatePasswordMessage="@{@string/custom_error_password_not_equal}" />
-                </android.support.design.widget.TextInputLayout>
-
-                <Button
-                    android:id="@+id/validate"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Validate All"
-                    android:onClick="@{v -> viewModel.onAllViewClick(v)}" />
+                    android:hint="CPF"
+                    app:validateDateListener='@{"onTextChange"}'
+                    app:validateType='@{"cpf"}'
+                    app:validateTypeMessage="@{@string/custom_error_cpf}" />
 
-            </LinearLayout>
-        </ScrollView>
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Credit Card"
+                    app:validateDateListener='@{"onTextChange"}'
+                    app:validateType='@{"creditCard"}' />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Year"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    app:validateDate='@{"yyyy"}'
+                    app:validateDateListener='@{"onTextChange"}'
+                    app:validateDateMessage="@{@string/custom_error_date}" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Month"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    app:validateDate='@{"MM"}'
+                    app:validateDateListener='@{"onTextChange"}' />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Not Empty"
+                android:inputType="number"
+                app:validateDateListener='@{"onTextChange"}'
+                app:validateEmpty="@{true}" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:inputType="textPassword" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Confirm password"
+                    android:inputType="textPassword"
+                    app:validateDateListener='@{"onTextChange"}'
+                    app:validatePassword="@{password}"
+                    app:validatePasswordMessage="@{@string/custom_error_password_not_equal}" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/validate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Validate All"
+                android:onClick="@{v -> viewModel.onAllViewClick(v)}" />
+
+        </LinearLayout>
     </android.support.design.widget.CoordinatorLayout>
 </layout>
